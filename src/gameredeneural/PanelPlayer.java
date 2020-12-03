@@ -15,9 +15,8 @@ import java.awt.event.KeyEvent;
  */
 public class PanelPlayer extends GameObject {
 
-    public PanelPlayer(int x, int y, int w, int h, Indentification id) {
-        super(x, y, w, h, id);
-        
+    public PanelPlayer(int x, int y, int w, int h, Indentification id,int idObject) {
+        super(x, y, w, h, id,idObject);
     }
     
 

@@ -12,6 +12,7 @@ package gameredeneural;
 public enum Indentification {
     PLAYER(),
     OBSTACULE(),
+    OBSTACULE_LIVE(),
     DESC(),
     NEURAL(),
 }

@@ -19,7 +19,9 @@ public abstract class GameObject {
     protected int width , height;
     protected Indentification id;
     
-    public GameObject(int x,int y,int w,int h,Indentification id){
+    public int idObject;
+    
+    public GameObject(int x,int y,int w,int h,Indentification id,int idObject){
        this.x = x;
        this.y = y;
        
@@ -27,6 +29,7 @@ public abstract class GameObject {
        this.height = h;
 
        this.id = id;
+       this.idObject = idObject;
     }
     
     public abstract void update();
@@ -48,6 +51,10 @@ public abstract class GameObject {
     
     public int getWidth(){ return this.width;}
     public int getHeight(){ return this.height;}
+    
+    public int getIdObject(){
+       return this.idObject;
+    }
 
     public abstract void remove(int i, int i0, int i1, int i2, GameRedeNeural game, int nextInt);
 }

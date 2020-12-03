@@ -77,11 +77,11 @@ public class HandlerListObjects {
         return this.listObjectsBox;
     }
     
-    public LinkedList<GameObject> getPlayer(){
-        LinkedList<GameObject> lis = new LinkedList();
+    public LinkedList<MainCharacter> getPlayer(){
+        LinkedList<MainCharacter> lis = new LinkedList();
         for(int i =0; i < this.listObjects.size();i++){
            if(Indentification.PLAYER == this.listObjects.get(i).id){
-              lis.add(this.listObjects.get(i));
+              lis.add((MainCharacter) this.listObjects.get(i));
            }
         }
         return lis;
@@ -90,7 +90,17 @@ public class HandlerListObjects {
     public LinkedList<GameObject> getObstacule(){
         LinkedList<GameObject> lis = new LinkedList();
         for(int i =0; i < this.listObjects.size();i++){
-           if(Indentification.OBSTACULE == this.listObjects.get(i).id){
+           if(Indentification.OBSTACULE == this.listObjects.get(i).id || Indentification.OBSTACULE_LIVE == this.listObjects.get(i).id){
+              lis.add(this.listObjects.get(i));
+           }
+        }
+        return lis;
+    }
+    
+    public LinkedList<GameObject> getObstaculeHith(){
+        LinkedList<GameObject> lis = new LinkedList();
+        for(int i =0; i < this.listObjects.size();i++){
+           if(Indentification.OBSTACULE_LIVE == this.listObjects.get(i).id){
               lis.add(this.listObjects.get(i));
            }
         }

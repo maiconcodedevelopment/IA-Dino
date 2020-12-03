@@ -1,6 +1,8 @@
 package gameredeneural;
 
+import gameredeneural.GameRedeNeural.GameScreen;
 import static gameredeneural.GameRedeNeural.GameScreen.GROUNDY;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -27,22 +29,22 @@ public class Obstacule extends GameObject {
     public static final int FLYING = 2;
     public int obstacule;
     
-    public int idobject;
+    public GameScreen gameScreen;
     
     public double[][] target = {{1,0}};
     
-    public Obstacule(int x, int y,int w,int h, GameRedeNeural game,int obstacule,Indentification id,int idobject) {
-        super(x, y,w,h,id);
+    public Obstacule(int x, int y,int w,int h, GameRedeNeural game,int obstacule,Indentification id,int idobject,GameScreen Athis) {
+        super(x, y,w,h,id,idobject);
         this.velX = 6;
         this.velY = 3;
         this.gameRedeNeural = game;
         this.obstacule = obstacule;
+        this.gameScreen = Athis;
         
         this.obstacules = new ArrayList<BufferedImage>();
         this.obstacules.add(ResorceImage.getImage("data/cactus1.png"));
         this.obstacules.add(ResorceImage.getImage("data/cactus2.png"));
         
-        this.idobject = idobject;
         
         if(this.obstacules.size() - 1 > obstacule){
             new Exception("Object Not Exist");
@@ -52,6 +54,7 @@ public class Obstacule extends GameObject {
     @Override
     public void update() {
        this.sppedX += 0.001f;
+       this.velX = (this.gameScreen.SCOREGAME / 1000) + 6;
        this.x -= this.velX;
        this.y += this.velY;
        
@@ -90,6 +93,10 @@ public class Obstacule extends GameObject {
     @Override
     public void remove(int x, int y,int w,int h, GameRedeNeural game, int nextInt) {
         this.x = x;
+    }
+    
+    public void setObstacule(int idObstacule){
+      this.obstacule = idObstacule;
     }
      
 }
